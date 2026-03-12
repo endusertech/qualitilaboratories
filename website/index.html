@@ -1,2 +1,108 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><title>Website Redesign Preview</title><style>body{font-family:Arial,sans-serif;background:#f6f7fb;margin:40px} header{display:flex;align-items:center;gap:20px} header img{height:80px} section{background:#fff;padding:20px;border-radius:8px;border:1px solid #ddd;margin-top:20px} </style></head><body><header><img src="assets/logo_ref.jpg" alt="Logo Ref"/><div><h1>Website Redesign - Preview</h1><p>Linear Project: Website Redesign</p></div></header><section><h2>Project Outline</h2><ul><li>GLA-11: Reference logo_ref.jpg to design an appropriate logo</li><li>GLA-14: Sub-issues GLA-18, GLA-19, GLA-20, GLA-21, GLA-22</li><li>GLA-15, GLA-16</li></ul></section></body></html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qualiti Laboratories - SDS Library</title>
+<style>
+  :root { --bg: #f6f7fb; --card: #fff; --text: #111; --muted:#555; --brand:#2b6cb0; }
+  * { box-sizing: border-box; }
+  body { font-family: Inter, Arial, sans-serif; margin:0; padding:0; background: var(--bg); color: var(--text); }
+  header { display:flex; align-items:center; gap:20px; padding:20px 40px; background: #fff; border-bottom: 1px solid #e5e5e5; position: sticky; top:0; z-index: 10; }
+  header img { height: 60px; }
+  nav { margin-left:auto; display:flex; gap:16px; }
+  nav a { text-decoration:none; color: #333; font-weight:600; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px 20px 60px; }
+  .hero { padding: 40px; text-align:left; background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%); border-radius: 12px; border: 1px solid #e6e8f0; }
+  .hero h1 { font-size: 2.4rem; margin:0 0 10px; }
+  .hero p { color: var(--muted); font-size: 1.1rem; }
+  section { background: #fff; padding: 28px; border-radius: 12px; border: 1px solid #e5e5e5; margin-top: 24px; }
+  #products .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 900px) { #products .grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { #products .grid { grid-template-columns: 1fr; } }
+  .card { padding: 16px; border: 1px solid #e2e2e2; border-radius: 12px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+  .card h3 { margin-top:0; font-weight:700; }
+  .card p { color: #555; }
+  .card .sds { margin-top: 12px; display:inline-block; padding: 8px 12px; background:#1a73e8; color:#fff; border-radius:6px; text-decoration:none; }
+  .section-title { font-size:1.5rem; margin-bottom:10px; }
+  .portfolio p, .contact p { color:#555; }
+  footer { text-align:center; color:#888; font-size: .9rem; padding:20px 0; }
+</style>
+</head>
+<body>
+  <header>
+    <img src="assets/logo_ref.jpg" alt="Logo Ref"/>
+    <div>
+      <h1 style="margin:0; font-size:1.25rem;">Qualiti Laboratories</h1>
+    </div>
+    <nav>
+      <a href="#products">Products</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <div class="container">
+    <section class="hero" aria-label="Intro">
+      <h1>Qualiti Laboratories SDS Library</h1>
+      <p>A curated collection of safety data sheets for our product portfolio, designed for quick access and clear safety information.</p>
+    </section>
+
+    <section id="products" aria-label="Products">
+      <h2 class="section-title" style="margin-top:0;">Products</h2>
+      <div class="grid">
+        <article class="card" aria-label="PureSense Sensor Kit">
+          <h3>PureSense Sensor Kit</h3>
+          <p>A modular sensor platform for real-time process monitoring in laboratory environments, combining temperature, humidity, pH, and dissolved oxygen sensing with a compact control unit.</p>
+          <a class="sds" href="docs/SDS/PureSense_SDS.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+        </article>
+        <article class="card" aria-label="NanoChem Reactor">
+          <h3>NanoChem Reactor</h3>
+          <p>A compact, scalable micro-reactor for small-batch synthesis with safety features and straightforward integration into existing workflows.</p>
+          <a class="sds" href="docs/SDS/NanoChem_SDS.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+        </article>
+        <article class="card" aria-label="BioGuard Kit">
+          <h3>BioGuard Kit</h3>
+          <p>Personal protective equipment and sterile workflow kit designed to enhance lab safety and hygiene across processes.</p>
+          <a class="sds" href="docs/SDS/BioGuard_SDS.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+        </article>
+        <article class="card" aria-label="AeroClean System">
+          <h3>AeroClean System</h3>
+          <p>Advanced air filtration and safety features to protect personnel in lab environments.</p>
+          <a class="sds" href="docs/SDS/AeroClean_SDS.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+        </article>
+        <article class="card" aria-label="CellGuard Platform">
+          <h3>CellGuard Platform</h3>
+          <p>Integrated biosafety platform designed for reliable containment and workflow hygiene.</p>
+          <a class="sds" href="docs/SDS/CellGuard_SDS.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+        </article>
+        <article class="card" aria-label="ProcessGuard Kit">
+          <h3>ProcessGuard Kit</h3>
+          <p>Process safety kit including spill containment, eyewash, and emergency response essentials.</p>
+          <a class="sds" href="docs/SDS/ProcessGuard_SDS.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+        </article>
+        <article class="card" aria-label="HydroSense">
+          <h3>HydroSense</h3>
+          <p>High-precision sensing suite for fluids and gases with robust telemetry and data logging.</p>
+          <a class="sds" href="docs/SDS/HydroSense_SDS.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="portfolio" aria-label="Portfolio" class="portfolio">
+      <h2 class="section-title">Portfolio</h2>
+      <p>Qualiti Laboratories presents a cohesive portfolio focused on safety, reliability, and performance. Each product is supported by a detailed SDS to help teams manage risk and comply with safety protocols.</p>
+    </section>
+
+    <section id="contact" aria-label="Contact" class="contact">
+      <h2 class="section-title">Contact</h2>
+      <p>Email: support@qualiti.example</p>
+      <p>Phone: +1 (555) 010-1234</p>
+      <p>Address: 123 Innovation Way, San Mateo, CA 94402, USA</p>
+    </section>
+
+    <footer>
+      © Qualiti Laboratories 2026 • 123 Innovation Way, San Mateo, CA 94402, USA • All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
