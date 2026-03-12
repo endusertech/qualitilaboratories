@@ -5,35 +5,161 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Qualiti Laboratories - SDS Library</title>
 <style>
-  :root { --bg: #f6f7fb; --card: #fff; --text: #111; --muted:#555; --brand:#2b6cb0; }
+  :root { 
+    --bg: #f0f4f8; 
+    --card: #ffffff; 
+    --text: #1a202c; 
+    --muted: #4a5568; 
+    --brand: #2b6cb0; 
+    --accent: #3182ce;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
   * { box-sizing: border-box; }
-  body { font-family: Inter, Arial, sans-serif; margin:0; padding:0; background: var(--bg); color: var(--text); }
-  header { display:flex; align-items:center; gap:20px; padding:20px 40px; background: #fff; border-bottom: 1px solid #e5e5e5; position: sticky; top:0; z-index: 10; }
-  header img { height: 60px; }
-  nav { margin-left:auto; display:flex; gap:16px; }
-  nav a { text-decoration:none; color: #333; font-weight:600; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 20px 20px 60px; }
-  .hero { padding: 40px; text-align:left; background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%); border-radius: 12px; border: 1px solid #e6e8f0; }
-  .hero h1 { font-size: 2.4rem; margin:0 0 10px; }
-  .hero p { color: var(--muted); font-size: 1.1rem; }
-  section { background: #fff; padding: 28px; border-radius: 12px; border: 1px solid #e5e5e5; margin-top: 24px; }
-  #products .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  @media (max-width: 900px) { #products .grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 600px) { #products .grid { grid-template-columns: 1fr; } }
-  .card { padding: 16px; border: 1px solid #e2e2e2; border-radius: 12px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
-  .card h3 { margin-top:0; font-weight:700; }
-  .card p { color: #555; }
-  .card .sds { margin-top: 12px; display:inline-block; padding: 8px 12px; background:#1a73e8; color:#fff; border-radius:6px; text-decoration:none; }
-  .section-title { font-size:1.5rem; margin-bottom:10px; }
-  .portfolio p, .contact p { color:#555; }
-  footer { text-align:center; color:#888; font-size: .9rem; padding:20px 0; }
+  body { font-family: 'Inter', -apple-system, sans-serif; margin:0; padding:0; background: var(--bg); color: var(--text); line-height: 1.5; }
+  
+  header { 
+    display:flex; 
+    align-items:center; 
+    gap:20px; 
+    padding:15px 40px; 
+    background: #fff; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky; 
+    top:0; 
+    z-index: 100; 
+  }
+  header img { height: 50px; border-radius: 4px; }
+  nav { margin-left:auto; display:flex; gap:24px; }
+  nav a { text-decoration:none; color: var(--muted); font-weight:600; font-size: 0.95rem; transition: color 0.2s; }
+  nav a:hover { color: var(--brand); }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px 80px; }
+
+  .hero { 
+    padding: 80px 40px; 
+    text-align: center; 
+    background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%); 
+    color: white;
+    border-radius: 24px; 
+    box-shadow: 0 20px 40px rgba(26, 54, 93, 0.2);
+    margin-bottom: 60px;
+  }
+  .hero .highlight { 
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-weight: 700;
+  }
+  .hero h1 { font-size: 3.2rem; margin:0 0 24px; font-weight: 800; line-height: 1.1; letter-spacing: -1px; }
+  .hero p { color: rgba(255,255,255,0.9); font-size: 1.25rem; max-width: 700px; margin: 0 auto 30px; line-height: 1.6; }
+  
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+  .stat-item { text-align: center; }
+  .stat-val { display: block; font-size: 1.75rem; font-weight: 800; color: #fff; }
+  .stat-lab { font-size: 0.75rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+
+  section { 
+    background: var(--card); 
+    padding: 40px; 
+    border-radius: 20px; 
+    box-shadow: var(--shadow);
+    margin-bottom: 40px;
+    border: 1px solid rgba(0,0,0,0.03);
+  }
+  
+  .section-title { 
+    font-size: 1.8rem; 
+    font-weight: 800;
+    margin-bottom: 30px; 
+    position: relative;
+    display: inline-block;
+  }
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 4px;
+    background: var(--brand);
+    border-radius: 2px;
+  }
+
+  #products .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+  .card { 
+    padding: 24px; 
+    border: 1px solid #edf2f7; 
+    border-radius: 16px; 
+    background: #fff; 
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 20px rgba(0,0,0,0.05); }
+  .card h3 { margin: 0 0 12px; font-size: 1.25rem; color: var(--brand); }
+  .card p { color: var(--muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 20px; }
+  .card .sds { 
+    align-self: flex-start;
+    padding: 10px 18px; 
+    background: var(--brand); 
+    color:#fff; 
+    border-radius: 8px; 
+    text-decoration:none; 
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  .card .sds:hover { background: #2c5282; }
+
+  .portfolio { background: #fff; }
+  .portfolio p { font-size: 1.1rem; color: var(--muted); max-width: 800px; }
+
+  .contact { 
+    background: #1a202c; 
+    color: white; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .contact .section-title { color: white; }
+  .contact .info { display: flex; flex-direction: column; gap: 15px; }
+  .contact a { color: #63b3ed; text-decoration: none; font-weight: 600; }
+  
+  footer { 
+    text-align: center; 
+    color: var(--muted); 
+    font-size: 0.85rem; 
+    padding: 40px 0; 
+    border-top: 1px solid #e2e8f0;
+  }
+
+  @media (max-width: 768px) {
+    .contact { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.2rem; }
+    header { padding: 15px 20px; }
+    nav { display: none; }
+  }
 </style>
 </head>
 <body>
   <header>
-    <img src="assets/logo_ref.jpg" alt="Logo Ref"/>
+    <img src="assets/logo_ref.jpg" alt="Qualiti Logo"/>
     <div>
-      <h1 style="margin:0; font-size:1.25rem;">Qualiti Laboratories</h1>
+      <h1 style="margin:0; font-size:1.1rem; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 800;">Qualiti Laboratories</h1>
     </div>
     <nav>
       <a href="#products">Products</a>
@@ -41,67 +167,91 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
+
   <div class="container">
     <section class="hero" aria-label="Intro">
-      <h1>Qualiti Laboratories SDS Library</h1>
-      <p>A curated collection of safety data sheets for our product portfolio, designed for quick access and clear safety information.</p>
+      <div class="hero-content">
+        <span class="highlight">Industry Leading Solutions</span>
+        <h1>Partnering in Contamination Risk Reduction</h1>
+        <p>Providing a complete line of cutting-edge, time-proven cleaners and disinfectants designed for the most demanding environments.</p>
+        
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-val">25+ Years</span>
+            <span class="stat-lab">Experience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">Full Library</span>
+            <span class="stat-lab">SDS Access</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">Precision</span>
+            <span class="stat-lab">Equipment</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="products" aria-label="Products">
-      <h2 class="section-title" style="margin-top:0;">Products</h2>
+      <h2 class="section-title">Product Catalog</h2>
       <div class="grid">
-        <article class="card" aria-label="AC-200">
+        <article class="card">
           <h3>AC-200</h3>
-          <p>Phosphoric Acid Descaler. No foam or residue.</p>
-          <a class="sds" href="sds/ac-200.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+          <p>High-performance Phosphoric Acid Descaler. Formulated for zero foam and no residue applications.</p>
+          <a class="sds" href="sds/ac-200.pdf" target="_blank" rel="noopener">Technical SDS</a>
         </article>
-        <article class="card" aria-label="CIP Passivator">
+        <article class="card">
           <h3>CIP Passivator</h3>
-          <p>Washer Maintainer. Used regularly will reduce maintenance cost and improve efficiency.</p>
-          <a class="sds" href="sds/cip_passivator.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+          <p>Advanced Washer Maintainer. Regular use significantly reduces maintenance costs and boosts operational efficiency.</p>
+          <a class="sds" href="sds/cip_passivator.pdf" target="_blank" rel="noopener">Technical SDS</a>
         </article>
-        <article class="card" aria-label="Drainzyme">
+        <article class="card">
           <h3>Drainzyme</h3>
-          <p>Drain Maintainer.</p>
-          <a class="sds" href="sds/drainzyme.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+          <p>Enzymatic Drain Maintainer designed for continuous flow and organic buildup prevention.</p>
+          <a class="sds" href="sds/drainzyme.pdf" target="_blank" rel="noopener">Technical SDS</a>
         </article>
-        <article class="card" aria-label="Earth Klenz">
+        <article class="card">
           <h3>Earth Klenz</h3>
-          <p>Biodegradable Cleaner. Non-Toxic/Non-Butyl.</p>
-          <a class="sds" href="sds/earth_klenz.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+          <p>Environmentally conscious Biodegradable Cleaner. Non-Toxic and Non-Butyl formula for safe, effective cleaning.</p>
+          <a class="sds" href="sds/earth_klenz.pdf" target="_blank" rel="noopener">Technical SDS</a>
         </article>
-        <article class="card" aria-label="QN-430">
+        <article class="card">
           <h3>QN-430</h3>
-          <p>pH Adjuster. No foam or residue.</p>
-          <a class="sds" href="sds/qn-430.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+          <p>Industrial pH Adjuster. Engineered for precision control with no foam or residue leftover.</p>
+          <a class="sds" href="sds/qn-430.pdf" target="_blank" rel="noopener">Technical SDS</a>
         </article>
-        <article class="card" aria-label="Stout">
+        <article class="card">
           <h3>Stout</h3>
-          <p>Alkaline Recirculate Washer Detergent.</p>
-          <a class="sds" href="sds/stout.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+          <p>Heavy-duty Alkaline Recirculate Washer Detergent for tough industrial soil removal.</p>
+          <a class="sds" href="sds/stout.pdf" target="_blank" rel="noopener">Technical SDS</a>
         </article>
-        <article class="card" aria-label="Ultra Complete">
+        <article class="card">
           <h3>Ultra Complete</h3>
-          <p>2-1 Detergent. No foam or residue.</p>
-          <a class="sds" href="sds/ultra_complete.pdf" target="_blank" rel="noopener">View SDS Sheet</a>
+          <p>Premium 2-in-1 Detergent solution. Optimized for residue-free performance in high-pressure systems.</p>
+          <a class="sds" href="sds/ultra_complete.pdf" target="_blank" rel="noopener">Technical SDS</a>
         </article>
       </div>
     </section>
 
     <section id="portfolio" aria-label="Portfolio" class="portfolio">
-      <h2 class="section-title">Portfolio</h2>
-      <p>Qualiti Laboratories presents a cohesive portfolio focused on safety, reliability, and performance. Each product is supported by a detailed SDS to help teams manage risk and comply with safety protocols.</p>
+      <h2 class="section-title">Our Portfolio</h2>
+      <p>Qualiti Laboratories presents a cohesive portfolio focused on safety, reliability, and performance. Each product is supported by a detailed SDS to help teams manage risk and comply with safety protocols. We bridge the gap between industrial strength and environmental responsibility.</p>
     </section>
 
     <section id="contact" aria-label="Contact" class="contact">
-      <h2 class="section-title">Contact</h2>
-      <p>Email: support@qualiti.example</p>
-      <p>Phone: +1 (555) 010-1234</p>
-      <p>Address: 123 Innovation Way, San Mateo, CA 94402, USA</p>
+      <div>
+        <h2 class="section-title">Get In Touch</h2>
+        <p style="opacity: 0.8;">Have questions about our products or need a custom solution? Our team is ready to assist you with technical expertise.</p>
+      </div>
+      <div class="info">
+        <p>Email: <a href="mailto:rebecca@earthklenz.com">rebecca@earthklenz.com</a></p>
+        <p>Phone: <a href="tel:+19492917603">+1 (949) 291-7603</a></p>
+        <p>Location: <span style="opacity: 0.9;">Bermuda Dunes, CA</span></p>
+      </div>
     </section>
 
     <footer>
-      © Qualiti Laboratories 2026 • 123 Innovation Way, San Mateo, CA 94402, USA • All rights reserved.
+      Copyright © 1999 - 2026 Qualiti Laboratories™ All Rights Reserved
     </footer>
   </div>
 </body>
